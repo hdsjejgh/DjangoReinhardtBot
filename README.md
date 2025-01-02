@@ -1,7 +1,7 @@
-Django reinhardt
+Robert Fripp
 
 
 
-Django reinhardt bot for python. Literally just the John Coltrane Bot but Django Reinhardt
+Robert Fripp bot for python. Just the John Coltrane Bot but Robert Fripp
 (90% of the commits were trying to fix the gitignore)
-(I dont really care about django reinhardt, all the relevant jazz musicians were taken)
+(was django reinhardt before but I don't really care about him so its robert fripp time)
