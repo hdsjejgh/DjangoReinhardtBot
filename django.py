@@ -1,5 +1,6 @@
 import praw
-from hhh import *
+from hhh import * #this file has all the info put in the praw.Reddit class like passowrd, id, etc
+
 
 username = 'RobertFrippBot'
 search = ['Robert fripp', 'The great deceiver', 'Groon']
