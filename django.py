@@ -19,13 +19,13 @@ for post in hot: #iterates over top 20 hot posts in subreddit
     if not post.stickied: #makes sure post isnt a pinned post
         comments = post.comments.list()
         for item in search: #tests each item to see if the post mentions it
-            if (item.lower() in post.title.lower() or item.lower() in post.selftext.lower()) and post.author != username and username not in [com.author for com in comments]:
+            if ("".join(item.lower().split()) in "".join(post.title.lower().split()) or "".join(item.lower().split()) in "".join(post.selftext.lower()).split()) and post.author != username and username not in [com.author for com in comments]:
                 post.reply(item) #if mentioned, comment the item, then stop searching
                 break
         for comment in comments: #does the same thing but with comments
             for item in search:
                 try:
-                    if item.lower() in comment.body.lower() and comment.author != username and username not in [com.author for com in comment.replies]:
+                    if "".join(item.lower().split()) in "".join(comment.body.lower().split()) and comment.author != username and username not in [com.author for com in comment.replies]:
                         comment.reply(item)
                 except AttributeError: #makes sure it doesnt break because praw is incapable of loading the more comments button
                     pass #you are a multi million dollar company reddit, why cant you do this??
