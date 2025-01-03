@@ -28,7 +28,7 @@ async def replytocomment(comment, item):
     return True
 
 async def main():
-    for post in hot: #iterates over top 20 hot posts in subreddit
+    async for post in subreddit.h: #iterates over top 20 hot posts in subreddit
         print(post.title)
         if not post.stickied: #makes sure post isnt a pinned post
             comments = post.comments.list()
