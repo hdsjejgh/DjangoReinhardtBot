@@ -5,7 +5,7 @@ from hhh import * #this file has all the info put in the praw.Reddit class like 
 import asyncio
 
 username = 'RobertFrippBot'
-search = ['Robert fripp', 'The great deceiver', 'Groon']
+search = {'Robert fripp':"Robert fripp", 'Great deceiver':'The great deceiver', 'Groon':'Groon', 'Fripp':"Robert fripp", 'Robert':"Robert fripp", 'Lizard':"Lizard is ass"}
 
 reddit = praw.Reddit(client_id=id,
                          client_secret=secret,
@@ -32,13 +32,13 @@ async def main():
         print(post.title)
         if not post.stickied: #makes sure post isnt a pinned post
             comments = post.comments.list()
-            for item in search: #tests each item to see if the post mentions it
-                if await replytopost(post, item, comments):
+            for item in search.items(): #tests each item to see if the post mentions it
+                if await replytopost(post, search[item], comments):
                     break
             for comment in comments: #does the same thing but with comments
-                for item in search:
+                for item in search.items():
                     try:
-                        if await replytocomment(comment, item):
+                        if await replytocomment(comment, search[item]):
                             break
                     except AttributeError: #makes sure it doesnt break because praw is incapable of loading the more comments button
                         pass #you are a multi million dollar company reddit, why cant you do this??
